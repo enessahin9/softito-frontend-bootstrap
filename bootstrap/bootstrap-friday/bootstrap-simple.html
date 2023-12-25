@@ -1,40 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Friday</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Bootstrap Position</title>
+    <style>
+        .box-group{
+            width: 100%;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            /* Position 
+            position: absolute;
+            right: 0px;
+            top: 10px; */
+
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .green{
+            background-color: green;
+        }
+        .blue{
+            background-color: blue;
+            margin-left: auto;
+        }
+        .image-box{
+            position: relative;
+        }
+        .image-box>img{
+            width: 100%;
+        }
+        .image-box>.banner{
+            position: absolute;
+            top:50%;
+            left:50%;
+            /* transform: translateX(-50%) translateY(-50%); */
+            transform: translate(-50%,-50%);
+        }
+        .image-box-2{
+            height: 500px;
+            background: url('https://media.istockphoto.com/id/1283504873/photo/mosque-and-bosphorus-bridge.jpg?s=612x612&w=0&k=20&c=UHyYLC4VVJef9V8vzdJsVwqSjX3N06D2-975j3VoajY=');
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* background-position: center; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-box-2>.banner{
+            /* position: absolute; */
+            transform: translateY(-12px);
+        }
+        .simple{
+            width: 200px;
+            height: 200px;
+            position: relative;
+
+        }
+        .simple>.yellow{
+            position: absolute;
+            top:20px;
+            left: 20px;
+            z-index: 2;
+        }
+        .simple>.blue{
+            position: absolute;
+            top:40px;
+            left: 60px;
+        }
+    </style>
 </head>
-
-<style>
-    .box1,
-    .box2,
-    .box3 {
-        padding: 10px;
-        margin-right: 10px;
-        margin-left: 10px;
-        width: 100px;
-        height: 100px;
-    }
-</style>
-
 <body>
-    <div class="img-bg1 d-flex justify-content-end p-2 m-0">
-        <div class="box1 text-bg-primary m-0 "></div>
+    <div class="box-group">
+
+        <div class="box blue"></div>
+        <!-- <div class="box yellow"></div>
+        <div class="box green"></div> -->
     </div>
-
-
-    <div class="container p-2 m-0">
-        <div class="row">
-            <div class="box2 col-2 bg-secondary "></div>
-        </div>
+    <div class="image-box">
+        <img src="https://media.istockphoto.com/id/1283504873/photo/mosque-and-bosphorus-bridge.jpg?s=612x612&w=0&k=20&c=UHyYLC4VVJef9V8vzdJsVwqSjX3N06D2-975j3VoajY=" alt="">
+        <div class="box blue banner">İmage banner</div>
     </div>
+    <div class="image-box-2">
+        <div class="box green banner">Message</div>
+    </div>
+    <div class="simple">
 
-
-
+        <div class="box yellow banner">Message</div>
+        <div class="box green banner">Message</div>
+        <div class="box blue banner">Message</div>
+    </div>
 </body>
-
 </html>
